@@ -1,0 +1,14 @@
+@starting-style {
+  opacity: 0;
+}
+
+
+.fade-slide-in {
+  animation: fadeSlideIn 250ms ease-out;
+  animation-delay: calc(var(--delay) * 50ms);
+}
+
+.fade-slide-out {
+  animation: fadeSlideIn 250ms ease-in reverse;
+  animation-delay: calc(var(--delay) * 50ms);
+}

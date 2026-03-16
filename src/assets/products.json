@@ -1,0 +1,293 @@
+{
+  "products": [
+    {
+      "id": "ART-001",
+      "title": "Neon Pulse",
+      "artist": "Elena Vance",
+      "style": "Abstract",
+      "price": 450.0,
+      "dimensions_cm": {
+        "width": 100,
+        "height": 100
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2024,
+      "stock_level": 12,
+      "tags": ["vibrant", "modern", "geometric", "living room"],
+      "description": "A high-energy exploration of urban light using neon acrylic overlays.",
+      "thumbnailUrl": "art-001.png"
+    },
+    {
+      "id": "ART-002",
+      "title": "Digital Sunset",
+      "artist": "Elena Vance",
+      "style": "Abstract",
+      "price": 380.0,
+      "dimensions_cm": {
+        "width": 80,
+        "height": 60
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2023,
+      "stock_level": 5,
+      "tags": ["warm", "horizontal", "gradient"],
+      "description": "Abstracted horizons blending synthwave aesthetics with classical layering.",
+      "thumbnailUrl": "art-002.png"
+    },
+    {
+      "id": "ART-003",
+      "title": "Electric Orchard",
+      "artist": "Elena Vance",
+      "style": "Abstract",
+      "price": 520.0,
+      "dimensions_cm": {
+        "width": 120,
+        "height": 90
+      },
+      "medium": "Hand-Textured Print",
+      "year_original": 2025,
+      "stock_level": 3,
+      "tags": ["nature", "abstract", "bold"],
+      "description": "Fluorescent greens and deep purples reimagining a forest canopy.",
+      "thumbnailUrl": "art-003.png"
+    },
+    {
+      "id": "ART-004",
+      "title": "Static Flow",
+      "artist": "Elena Vance",
+      "style": "Abstract",
+      "price": 290.0,
+      "dimensions_cm": {
+        "width": 50,
+        "height": 50
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2022,
+      "stock_level": 20,
+      "tags": ["minimalist", "monochrome-plus", "small"],
+      "description": "A study of motion captured in frantic, textured brushstrokes.",
+      "thumbnailUrl": "art-004.png"
+    },
+    {
+      "id": "ART-005",
+      "title": "Cobalt Dreams",
+      "artist": "Elena Vance",
+      "style": "Abstract",
+      "price": 410.0,
+      "dimensions_cm": {
+        "width": 90,
+        "height": 90
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2024,
+      "stock_level": 8,
+      "tags": ["blue", "calm", "bedroom"],
+      "description": "Layers of deep blues and metallic silver leaf accents.",
+      "thumbnailUrl": "art-005.png"
+    },
+    {
+      "id": "ART-006",
+      "title": "Autumn in Vermont",
+      "artist": "Marcus Thorne",
+      "style": "Impressionist",
+      "price": 320.0,
+      "dimensions_cm": {
+        "width": 75,
+        "height": 50
+      },
+      "medium": "Canvas Wrap",
+      "year_original": 2021,
+      "stock_level": 15,
+      "tags": ["landscape", "orange", "classic"],
+      "description": "Thick impasto strokes capturing the fiery change of seasons.",
+      "thumbnailUrl": "art-006.png"
+    },
+    {
+      "id": "ART-007",
+      "title": "Mist Over the Thames",
+      "artist": "Marcus Thorne",
+      "style": "Impressionist",
+      "price": 340.0,
+      "dimensions_cm": {
+        "width": 100,
+        "height": 40
+      },
+      "medium": "Canvas Wrap",
+      "year_original": 2022,
+      "stock_level": 7,
+      "tags": ["cityscape", "fog", "moody"],
+      "description": "A hazy, atmospheric view of London at dawn.",
+      "thumbnailUrl": "art-007.png"
+    },
+    {
+      "id": "ART-008",
+      "title": "The Red Barn",
+      "artist": "Marcus Thorne",
+      "style": "Impressionist",
+      "price": 280.0,
+      "dimensions_cm": {
+        "width": 60,
+        "height": 60
+      },
+      "medium": "Canvas Wrap",
+      "year_original": 2020,
+      "stock_level": 11,
+      "tags": ["rural", "americana", "red"],
+      "description": "Sun-drenched rural scenery with a focus on light and shadow.",
+      "thumbnailUrl": "art-008.png"
+    },
+    {
+      "id": "ART-009",
+      "title": "Golden Hour Fields",
+      "artist": "Marcus Thorne",
+      "style": "Impressionist",
+      "price": 460.0,
+      "dimensions_cm": {
+        "width": 110,
+        "height": 70
+      },
+      "medium": "Hand-Textured Print",
+      "year_original": 2024,
+      "stock_level": 4,
+      "tags": ["yellow", "warm", "large"],
+      "description": "Expansive wheat fields glowing under a setting sun.",
+      "thumbnailUrl": "art-009.png"
+    },
+    {
+      "id": "ART-010",
+      "title": "Winter Solstice",
+      "artist": "Marcus Thorne",
+      "style": "Impressionist",
+      "price": 310.0,
+      "dimensions_cm": {
+        "width": 80,
+        "height": 80
+      },
+      "medium": "Canvas Wrap",
+      "year_original": 2023,
+      "stock_level": 9,
+      "tags": ["snow", "cool", "winter"],
+      "description": "A quiet, blue-toned landscape of a frozen lake.",
+      "thumbnailUrl": "art-010.png"
+    },
+    {
+      "id": "ART-011",
+      "title": "Venetian Echoes",
+      "artist": "Sienna Moretti",
+      "style": "Impressionist",
+      "price": 550.0,
+      "dimensions_cm": {
+        "width": 120,
+        "height": 80
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2025,
+      "stock_level": 2,
+      "tags": ["italy", "water", "architecture"],
+      "description": "Vibrant reflections of historic facades in canal waters.",
+      "thumbnailUrl": "art-011.png"
+    },
+    {
+      "id": "ART-012",
+      "title": "Crimson Petals",
+      "artist": "Sienna Moretti",
+      "style": "Impressionist",
+      "price": 240.0,
+      "dimensions_cm": {
+        "width": 40,
+        "height": 40
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2024,
+      "stock_level": 18,
+      "tags": ["floral", "red", "gift"],
+      "description": "Extreme close-up of a blooming rose in the style of Monet.",
+      "thumbnailUrl": "art-012.png"
+    },
+    {
+      "id": "ART-013",
+      "title": "Azure Cliffs",
+      "artist": "Sienna Moretti",
+      "style": "Impressionist",
+      "price": 430.0,
+      "dimensions_cm": {
+        "width": 90,
+        "height": 120
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2023,
+      "stock_level": 6,
+      "tags": ["ocean", "vertical", "summer"],
+      "description": "Sunlight hitting the Amalfi coast cliffs.",
+      "thumbnailUrl": "art-013.png"
+    },
+    {
+      "id": "ART-014",
+      "title": "The Sunken Garden",
+      "artist": "Sienna Moretti",
+      "style": "Impressionist",
+      "price": 490.0,
+      "dimensions_cm": {
+        "width": 100,
+        "height": 100
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2024,
+      "stock_level": 4,
+      "tags": ["green", "garden", "peaceful"],
+      "description": "Deep greens and hidden light within a private estate garden.",
+      "thumbnailUrl": "art-014.png"
+    },
+    {
+      "id": "ART-015",
+      "title": "Sienna's Sunrise",
+      "artist": "Sienna Moretti",
+      "style": "Impressionist",
+      "price": 375.0,
+      "dimensions_cm": {
+        "width": 80,
+        "height": 40
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2022,
+      "stock_level": 10,
+      "tags": ["sunrise", "pink", "mediterranean"],
+      "description": "The first light of day hitting a dusty terracotta village.",
+      "thumbnailUrl": "art-015.png"
+    },
+    {
+      "id": "ART-016",
+      "title": "Floating Peonies",
+      "artist": "Lian Chen",
+      "style": "Abstract",
+      "price": 600.0,
+      "dimensions_cm": {
+        "width": 150,
+        "height": 100
+      },
+      "medium": "Hand-Textured Print",
+      "year_original": 2024,
+      "stock_level": 3,
+      "tags": ["floral", "soft", "oversized"],
+      "description": "Ethereal, ink-wash style flowers merging into white space.",
+      "thumbnailUrl": "art-016.png"
+    },
+    {
+      "id": "ART-017",
+      "title": "Ethereal Blue",
+      "artist": "Lian Chen",
+      "style": "Abstract",
+      "price": 320.0,
+      "dimensions_cm": {
+        "width": 70,
+        "height": 70
+      },
+      "medium": "Gicl\u00e9e on Canvas",
+      "year_original": 2023,
+      "stock_level": 12,
+      "tags": ["minimalist", "blue", "calm"],
+      "description": "A single gradient of cerulean fading into misty grey.",
+      "thumbnailUrl": "art-017.png"
+    }
+  ]
+}
