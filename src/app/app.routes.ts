@@ -14,7 +14,7 @@ export const routes: Routes = [
         // },
       },
       {
-        path: 'favourites',
+        path: 'wishlist',
         loadComponent: () => import('./pages/wishlist/wishlist'),
         // data: {
         //   icon: '@tui.trending-up-down',
