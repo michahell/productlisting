@@ -7,7 +7,7 @@
 | sun 15-03 16:45 - 17:00 | 15m  ng cli scaffold, npm install deps, AI config, prettier, cors proxy |
 | sun 15-03 17:15 - 20:00 | 2h45 add skeleton, pages, components, products JSON file, ng spartan    |
 | sun 15-03 20:00 - 22:00 | 2h elaborate components using ng spartan                                |
-| mon 16-03 11:45 - 14:00 | 2h15 ?                                                                  |
+| mon 16-03 11:45 - 14:35 | 2h50 implement naive wishlist system                                    |
 
 total time spent: sun 6h + mon 6h = 12h
 

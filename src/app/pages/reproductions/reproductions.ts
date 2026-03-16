@@ -1,9 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { ProductsService } from '../../services/products/products.service';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Component, computed, inject } from '@angular/core';
 import { Product } from '../../components/product/product';
 import { ApiProduct } from '../../services/products/products.model';
 import { WishlistService } from '../../services/wishlist/wishlist.service';
+import { ReproductionsComponentFacade } from '../../services/reproductions/reproductions.component.facade';
 
 @Component({
   selector: 'app-reproductions',
@@ -13,11 +12,14 @@ import { WishlistService } from '../../services/wishlist/wishlist.service';
 })
 export default class Reproductions {
   readonly #wishlistService = inject(WishlistService);
-  readonly #productsService = inject(ProductsService);
-  readonly products = toSignal(this.#productsService.getProducts());
+  readonly #reproductionsFacade = inject(ReproductionsComponentFacade);
+  readonly reproductions = computed(() => this.#reproductionsFacade.reproductions());
 
-  protected onProductFavourited(product: ApiProduct): void {
-    console.log('Product favourited, ', product);
-    this.#wishlistService.addToWishlist({ ...product, amount: 1 });
+  onProductWishlisted(product: ApiProduct): void {
+    if (this.#wishlistService.isWishlistedItem(product)) {
+      this.#wishlistService.removeFromWishlist(product);
+    } else {
+      this.#wishlistService.addToWishlist(product);
+    }
   }
 }

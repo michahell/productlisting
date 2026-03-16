@@ -1,6 +1,7 @@
-import { inject, Injectable, linkedSignal, signal } from '@angular/core';
+import { computed, inject, Injectable, linkedSignal, signal } from '@angular/core';
 import { CachingService } from '../persistence/caching-service';
 import { Wishlist, WishlistItem } from './wishlist.model';
+import { ApiProduct } from '../products/products.model';
 
 const PRODUCT_CACHE_KEY = 'OBFUSCATED_CACHE_KEY';
 
@@ -14,27 +15,47 @@ export class WishlistService {
   readonly wishlist = linkedSignal<Wishlist | null, Wishlist | null>({
     source: this.#wishList,
     computation: this.#getWishList.bind(this),
-    equal: this.#naiveIsEqualWishlist,
   });
+  readonly wishlistedItemsCount = computed(() => this.wishlist()?.items.length ?? 0);
 
-  addToWishlist(wishlistItem: WishlistItem): void {
+  isWishlistedItem(product: ApiProduct): boolean {
     const wishlist = this.#getWishList();
     if (!wishlist) {
-      return this.#updateWishList({ items: [wishlistItem] });
+      return false;
     }
-    const updatedList = { ...wishlist.items };
-    updatedList.push(wishlistItem);
+    return wishlist.items.some(existingWishlistedItem => existingWishlistedItem.id === product.id);
+  }
+
+  addToWishlist(product: ApiProduct): void {
+    const wishlist = this.#getWishList();
+    // if the item is already wishlisted, return
+    if (this.isWishlistedItem(product)) {
+      return;
+    }
+    // updates the isWishlisted property as well
+    const newWishlistItem = { ...product, isWishlisted: true, count: 1 };
+    // if there is no wishlist yet, we create a new one
+    if (!wishlist) {
+      return this.#updateWishList({ items: [newWishlistItem] });
+    }
+    const updatedList = [...wishlist.items];
+    updatedList.push(newWishlistItem);
     this.#updateWishList({ items: updatedList });
   }
 
-  removeFromWishlist(wishlistItem: WishlistItem): void {
+  removeFromWishlist(product: ApiProduct): void {
     const wishlist = this.#getWishList();
+    // if there is no wishlist yet, we can also no remove anything from it so return
     if (!wishlist) {
       return;
     }
-    const updatedList = { ...wishlist.items };
-    updatedList.splice(updatedList.indexOf(wishlistItem), 1);
-    this.#updateWishList({ items: updatedList });
+    // if the item is NOT already wishlisted, return
+    if (!this.isWishlistedItem(product)) {
+      return;
+    }
+    const updatedList = [...wishlist.items];
+    const filteredList = updatedList.filter(wishlistItem => wishlistItem.id !== product.id);
+    this.#updateWishList({ items: filteredList });
   }
 
   #getWishList(): Wishlist | null {
@@ -43,13 +64,6 @@ export class WishlistService {
 
   #updateWishList(updatedWishList: Wishlist): void {
     this.#cachingService.naiveSetCache<Wishlist>(PRODUCT_CACHE_KEY, updatedWishList);
-    // this.#wishlist.update();
-  }
-
-  #naiveIsEqualWishlist(a: Wishlist | null, b: Wishlist | null): boolean {
-    if (!a || !b) {
-      throw new Error('neither wishlist can be null');
-    }
-    return a.items.length === b.items.length;
+    this.#wishList.update(() => updatedWishList);
   }
 }

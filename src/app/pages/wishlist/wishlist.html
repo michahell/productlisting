@@ -4,10 +4,21 @@
   @for (wishlistItem of wishlistItems(); track $index; let index = $index) {
     <app-product
       [product]="wishlistItem"
+      [canBeWishlisted]="false"
       [style.--delay]="index"
       class="flex mb-5"
       animate.enter="fade-slide-in"
       animate.leave="fade-slide-out"
     ></app-product>
+  } @empty {
+    <div hlmItem variant="muted">
+      <div hlmItemContent>
+        <div hlmItemTitle>Muted Variant</div>
+        <p hlmItemDescription>Subdued appearance with muted colors for secondary content.</p>
+      </div>
+      <div hlmItemActions>
+        <button hlmBtn variant="outline" size="sm">Open</button>
+      </div>
+    </div>
   }
 </div>

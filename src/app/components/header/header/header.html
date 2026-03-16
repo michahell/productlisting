@@ -19,11 +19,13 @@
             <button hlmBtn hlmSheetTrigger side="right" size="icon" variant="destructive" class="rounded-full">
               <ng-icon name="lucideHeart" />
             </button>
-            <span
-              hlmBadge
-              class="absolute -top-[4px] -right-[8px] bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300"
-              >5</span
-            >
+            @if (wishlistedItems() > 0) {
+              <span
+                hlmBadge
+                class="absolute -top-[4px] -right-[8px] bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300"
+                >{{ wishlistedItems() }}</span
+              >
+            }
           </div>
           <hlm-sheet-content *hlmSheetPortal="let ctx">
             <hlm-sheet-header>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HlmButton } from '@spartan-ng/helm/button';
 import {
@@ -22,6 +22,7 @@ import {
   HlmNavigationMenuLink,
   HlmNavigationMenuList,
 } from '@spartan-ng/helm/navigation-menu';
+import { WishlistService } from '../../../services/wishlist/wishlist.service';
 
 @Component({
   selector: 'app-header',
@@ -50,4 +51,8 @@ import {
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+  readonly #wishlistService = inject(WishlistService);
+
+  wishlistedItems = computed(() => this.#wishlistService.wishlistedItemsCount());
+}
