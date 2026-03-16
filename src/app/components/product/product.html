@@ -36,6 +36,11 @@
           wishlist
         </button>
       }
+      @if (amountWishlisted(); as amountWishlisted) {
+        @if (amountWishlisted > 0) {
+          <p>amount wishlisted: {{ amountWishlisted }}</p>
+        }
+      }
     </hlm-card-footer>
   </hlm-card>
 }

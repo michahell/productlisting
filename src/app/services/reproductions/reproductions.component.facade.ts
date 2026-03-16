@@ -21,6 +21,8 @@ export class ReproductionsComponentFacade {
   }
 
   #mapApiProductToReproduction(product: ApiProduct): ReproductionViewModel {
-    return { ...product, isWishlisted: this.#wishlistService.isWishlistedItem(product) };
+    const isWishlisted = this.#wishlistService.isWishlistedItem(product);
+    const amount = this.#wishlistService.getWishlistedItem(product)?.amount ?? 1;
+    return { ...product, isWishlisted, amount };
   }
 }

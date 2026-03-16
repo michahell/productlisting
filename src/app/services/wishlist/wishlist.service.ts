@@ -26,6 +26,14 @@ export class WishlistService {
     return wishlist.items.some(existingWishlistedItem => existingWishlistedItem.id === product.id);
   }
 
+  getWishlistedItem(product: ApiProduct): WishlistItem | null {
+    const wishlist = this.#getWishList();
+    if (!wishlist) {
+      return null;
+    }
+    return wishlist.items.find(existingWishlistedItem => existingWishlistedItem.id === product.id) ?? null;
+  }
+
   addToWishlist(product: ApiProduct): void {
     const wishlist = this.#getWishList();
     // if the item is already wishlisted, return
@@ -33,7 +41,7 @@ export class WishlistService {
       return;
     }
     // updates the isWishlisted property as well
-    const newWishlistItem = { ...product, isWishlisted: true, count: 1 };
+    const newWishlistItem = { ...product, isWishlisted: true, amount: 1 };
     // if there is no wishlist yet, we create a new one
     if (!wishlist) {
       return this.#updateWishList({ items: [newWishlistItem] });

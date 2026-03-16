@@ -2,7 +2,7 @@ import { ApiProduct } from '../products/products.model';
 
 export interface WishlisteableItem {
   isWishlisted: boolean;
-  amount?: number;
+  amount: number;
 }
 
 export interface WishlistItem extends ApiProduct, WishlisteableItem {}

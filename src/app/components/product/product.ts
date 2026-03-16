@@ -40,6 +40,7 @@ export class Product {
   readonly product = input.required<ApiProduct>();
   readonly canBeWishlisted = input.required<boolean>();
   readonly isWishlisted = input<boolean>();
+  readonly amountWishlisted = input<number>();
   readonly favourited = output<ApiProduct>();
 
   readonly wishlistStatus = computed(() => {

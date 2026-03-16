@@ -1,24 +1,31 @@
 <h2 class="${hlmH2} mb-5">wishlist</h2>
 
-<div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 pl-4 pr-4">
-  @for (wishlistItem of wishlistItems(); track $index; let index = $index) {
-    <app-product
-      [product]="wishlistItem"
-      [canBeWishlisted]="false"
-      [style.--delay]="index"
-      class="flex mb-5"
-      animate.enter="fade-slide-in"
-      animate.leave="fade-slide-out"
-    ></app-product>
-  } @empty {
-    <div hlmItem variant="muted">
-      <div hlmItemContent>
-        <div hlmItemTitle>Muted Variant</div>
-        <p hlmItemDescription>Subdued appearance with muted colors for secondary content.</p>
-      </div>
-      <div hlmItemActions>
-        <button hlmBtn variant="outline" size="sm">Open</button>
-      </div>
+@if (wishlistItems(); as wishlistItems) {
+  @if (wishlistItems.length > 0) {
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 pl-4 pr-4">
+      @for (wishlistItem of wishlistItems; track $index; let index = $index) {
+        <app-product
+          [product]="wishlistItem"
+          [canBeWishlisted]="false"
+          [amountWishlisted]="wishlistItem.amount"
+          [style.--delay]="index"
+          class="flex mb-5"
+          animate.enter="fade-slide-in"
+          animate.leave="fade-slide-out"
+        ></app-product>
+      }
+    </div>
+  } @else if (wishlistItems.length === 0) {
+    <div class="flex-1 w-full items-center align-middle content-center">
+      <a hlmItem routerLink="/shop/reproductions" routerLinkActive>
+        <div hlmItemContent>
+          <div hlmItemTitle>You have not yet favourited / wishlisted any reproductions!</div>
+          <p hlmItemDescription>Go see our reproductions to favourite some.</p>
+        </div>
+        <div hlmItemActions>
+          <ng-icon hlm name="lucideChevronRight" size="sm" />
+        </div>
+      </a>
     </div>
   }
-</div>
+}
