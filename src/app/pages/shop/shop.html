@@ -1,9 +1,11 @@
-<app-header> </app-header>
+<div class="relative">
+  <app-header class="fixed top-0 right-0 left-0 z-40"> </app-header>
 
-<div class="flex flex-row mt-5">
-  <div class="basis-1/8"></div>
-  <div class="basis-6/8 overflow-hidden pb-5">
-    <router-outlet />
+  <div class="flex flex-row mt-[100px]">
+    <div class="basis-1/12"></div>
+    <div class="basis-10/12 overflow-hidden pb-5">
+      <router-outlet />
+    </div>
+    <div class="basis-1/12"></div>
   </div>
-  <div class="basis-1/8"></div>
 </div>
