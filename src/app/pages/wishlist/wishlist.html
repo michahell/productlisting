@@ -1,18 +1,13 @@
-<h1>Wishlist / Favourites</h1>
+<h2 class="${hlmH2} mb-5">wishlist</h2>
 
-<div class="product-listing-container">
-  <div class="columns-2 md:columns-4 gap-4 space-y-4">
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x290" width="232" height="290" alt="Image 01" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x290" width="232" height="290" alt="Image 02" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x174" width="232" height="174" alt="Image 03" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x155" width="232" height="155" alt="Image 04" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x349" width="232" height="349" alt="Image 05" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x250" width="232" height="250" alt="Image 06" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x349" width="232" height="349" alt="Image 07" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x155" width="232" height="155" alt="Image 08" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x250" width="232" height="250" alt="Image 09" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x290" width="232" height="290" alt="Image 10" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x155" width="232" height="155" alt="Image 11" />
-    <img class="w-full rounded-xl shadow" src="https://placehold.co/232x309" width="232" height="309" alt="Image 12" />
-  </div>
+<div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 pl-4 pr-4">
+  @for (wishlistItem of wishlistItems(); track $index; let index = $index) {
+    <app-product
+      [product]="wishlistItem"
+      [style.--delay]="index"
+      class="flex mb-5"
+      animate.enter="fade-slide-in"
+      animate.leave="fade-slide-out"
+    ></app-product>
+  }
 </div>

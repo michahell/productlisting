@@ -27,9 +27,9 @@
         variant="outline"
         aria-label="Toggle bookmark"
         class="data-[state=on]:bg-transparent data-[state=on]:*:[ng-icon]:*:[svg]:fill-red-500 data-[state=on]:*:[ng-icon]:*:[svg]:stroke-red-500"
-        (click)="onWishlist($event)"
+        (click)="onWishlisted(product)"
       >
-        <ng-icon name="lucideBookmark" />
+        <ng-icon name="lucideHeart" />
         wishlist
       </button>
     </hlm-card-footer>

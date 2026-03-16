@@ -1,122 +1,56 @@
 <header class="lg:px-16 px-4 bg-white flex flex-wrap items-center py-4 shadow-md">
   <div class="flex-1 flex justify-between items-center">
-    <a href="#" class="text-xl">artify</a>
+    <a href="#" class="text-xl">Artify</a>
   </div>
 
-  <label for="menu-toggle" class="pointer-cursor md:hidden block">
-    <svg
-      class="fill-current text-gray-900"
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-    >
-      <title>menu</title>
-      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-    </svg>
-  </label>
-  <input class="hidden" type="checkbox" id="menu-toggle" />
+  <nav hlmNavigationMenu>
+    <ul hlmNavigationMenuList class="flex-wrap">
+      <li hlmNavigationMenuItem class="pl-2">
+        <a hlmNavigationMenuLink routerLink="/shop/reproductions" routerLinkActive>reproductions</a>
+      </li>
 
-  <div class="hidden md:flex md:items-center md:w-auto w-full" id="menu">
-    <nav hlmNavigationMenu>
-      <ul hlmNavigationMenuList class="flex-wrap">
-        <li hlmNavigationMenuItem>
-          <a hlmNavigationMenuLink routerLink="/shop/reproductions" routerLinkActive>reproductions</a>
-        </li>
+      <li hlmNavigationMenuItem class="pl-2">
+        <a hlmNavigationMenuLink routerLink="/shop/wishlist" routerLinkActive>wishlist</a>
+      </li>
 
-        <li hlmNavigationMenuItem>
-          <a hlmNavigationMenuLink routerLink="/shop/wishlist" routerLinkActive>wishlist</a>
-        </li>
-
-        <li>
-          <hlm-sheet>
-            <div class="relative">
-              <button hlmBtn hlmSheetTrigger side="right" size="icon" variant="outline" class="rounded-full">
-                <ng-icon name="lucideBookmark" />
-              </button>
-              <span
-                hlmBadge
-                class="absolute -top-[4px] -right-[8px] bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300"
-                >5</span
-              >
-            </div>
-            <hlm-sheet-content *hlmSheetPortal="let ctx">
-              <hlm-sheet-header>
-                <h3 hlmSheetTitle>Are you absolutely sure?</h3>
-                <p hlmSheetDescription>
-                  This action cannot be undone. This will permanently delete your account and remove your data from our
-                  servers.
-                </p>
-              </hlm-sheet-header>
-              <div class="grid flex-1 auto-rows-min gap-6 px-4">
-                <div class="grid gap-3">
-                  <label hlmLabel for="name" class="text-right">Name</label>
-                  <input hlmInput id="name" value="Pedro Duarte" class="col-span-3" />
-                </div>
-                <div class="grid gap-3">
-                  <label hlmLabel for="username" class="text-right">Username</label>
-                  <input hlmInput id="username" value="@peduarte" class="col-span-3" />
-                  <input class="w-80" hlmInput type="number" placeholder="number" />
-                </div>
+      <li class="pl-2">
+        <hlm-sheet>
+          <div class="relative">
+            <button hlmBtn hlmSheetTrigger side="right" size="icon" variant="destructive" class="rounded-full">
+              <ng-icon name="lucideHeart" />
+            </button>
+            <span
+              hlmBadge
+              class="absolute -top-[4px] -right-[8px] bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300"
+              >5</span
+            >
+          </div>
+          <hlm-sheet-content *hlmSheetPortal="let ctx">
+            <hlm-sheet-header>
+              <h3 hlmSheetTitle>Are you absolutely sure?</h3>
+              <p hlmSheetDescription>
+                This action cannot be undone. This will permanently delete your account and remove your data from our
+                servers.
+              </p>
+            </hlm-sheet-header>
+            <div class="grid flex-1 auto-rows-min gap-6 px-4">
+              <div class="grid gap-3">
+                <label hlmLabel for="name" class="text-right">Name</label>
+                <input hlmInput id="name" value="Pedro Duarte" class="col-span-3" />
               </div>
-              <hlm-sheet-footer>
-                <button hlmBtn type="submit">Save Changes</button>
-                <button hlmSheetClose hlmBtn variant="outline">Close</button>
-              </hlm-sheet-footer>
-            </hlm-sheet-content>
-          </hlm-sheet>
-        </li>
-      </ul>
-    </nav>
-
-    <!--    <nav>-->
-    <!--      <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">-->
-    <!--        <li>-->
-    <!--          <a class="md:p-4 py-3 px-0 block" routerLink="/shop/reproductions" routerLinkActive="tab-active"-->
-    <!--            >Reproductions</a-->
-    <!--          >-->
-    <!--        </li>-->
-    <!--        <li>-->
-    <!--          <a class="md:p-4 py-3 px-0 block" routerLink="/shop/favourites" routerLinkActive="tab-active">Favourites</a>-->
-    <!--        </li>-->
-    <!--        &lt;!&ndash; sheet &ndash;&gt;-->
-    <!--        <hlm-sheet>-->
-    <!--          <div class="relative">-->
-    <!--            <button hlmBtn hlmSheetTrigger side="right" size="icon" variant="outline" class="rounded-full">-->
-    <!--              <ng-icon name="lucideBookmark" />-->
-    <!--            </button>-->
-    <!--            <span-->
-    <!--              hlmBadge-->
-    <!--              class="absolute -top-4 -left-4 bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300"-->
-    <!--              >5</span-->
-    <!--            >-->
-    <!--          </div>-->
-    <!--          <hlm-sheet-content *hlmSheetPortal="let ctx">-->
-    <!--            <hlm-sheet-header>-->
-    <!--              <h3 hlmSheetTitle>Are you absolutely sure?</h3>-->
-    <!--              <p hlmSheetDescription>-->
-    <!--                This action cannot be undone. This will permanently delete your account and remove your data from our-->
-    <!--                servers.-->
-    <!--              </p>-->
-    <!--            </hlm-sheet-header>-->
-    <!--            <div class="grid flex-1 auto-rows-min gap-6 px-4">-->
-    <!--              <div class="grid gap-3">-->
-    <!--                <label hlmLabel for="name" class="text-right">Name</label>-->
-    <!--                <input hlmInput id="name" value="Pedro Duarte" class="col-span-3" />-->
-    <!--              </div>-->
-    <!--              <div class="grid gap-3">-->
-    <!--                <label hlmLabel for="username" class="text-right">Username</label>-->
-    <!--                <input hlmInput id="username" value="@peduarte" class="col-span-3" />-->
-    <!--                <input class="w-80" hlmInput type="number" placeholder="number" />-->
-    <!--              </div>-->
-    <!--            </div>-->
-    <!--            <hlm-sheet-footer>-->
-    <!--              <button hlmBtn type="submit">Save Changes</button>-->
-    <!--              <button hlmSheetClose hlmBtn variant="outline">Close</button>-->
-    <!--            </hlm-sheet-footer>-->
-    <!--          </hlm-sheet-content>-->
-    <!--        </hlm-sheet>-->
-    <!--      </ul>-->
-    <!--    </nav>-->
-  </div>
+              <div class="grid gap-3">
+                <label hlmLabel for="username" class="text-right">Username</label>
+                <input hlmInput id="username" value="@peduarte" class="col-span-3" />
+                <input class="w-80" hlmInput type="number" placeholder="number" />
+              </div>
+            </div>
+            <hlm-sheet-footer>
+              <button hlmBtn type="submit">Save Changes</button>
+              <button hlmSheetClose hlmBtn variant="outline">Close</button>
+            </hlm-sheet-footer>
+          </hlm-sheet-content>
+        </hlm-sheet>
+      </li>
+    </ul>
+  </nav>
 </header>

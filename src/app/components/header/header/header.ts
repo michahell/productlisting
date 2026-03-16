@@ -18,12 +18,9 @@ import { HlmLabel } from '@spartan-ng/helm/label';
 import { HlmBadge } from '@spartan-ng/helm/badge';
 import {
   HlmNavigationMenu,
-  HlmNavigationMenuContent,
   HlmNavigationMenuItem,
   HlmNavigationMenuLink,
   HlmNavigationMenuList,
-  HlmNavigationMenuPortal,
-  HlmNavigationMenuTrigger,
 } from '@spartan-ng/helm/navigation-menu';
 
 @Component({
@@ -48,9 +45,6 @@ import {
     HlmNavigationMenu,
     HlmNavigationMenuList,
     HlmNavigationMenuItem,
-    HlmNavigationMenuTrigger,
-    HlmNavigationMenuContent,
-    HlmNavigationMenuPortal,
     HlmNavigationMenuLink,
   ],
   templateUrl: './header.html',

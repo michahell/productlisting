@@ -17,9 +17,3 @@ export interface ApiProduct {
   description: string;
   thumbnailUrl: string;
 }
-
-export interface ApiProducts {
-  webshop: string;
-  currency: string;
-  products: ApiProduct[];
-}

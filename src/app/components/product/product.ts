@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import {
   HlmCard,
   HlmCardAction,
@@ -8,7 +8,7 @@ import {
   HlmCardHeader,
   HlmCardTitle,
 } from '@spartan-ng/helm/card';
-import { ApiProduct } from '../../products/products.model';
+import { ApiProduct } from '../../services/products/products.model';
 import { HlmToggle } from '@spartan-ng/helm/toggle';
 import { NgIcon } from '@ng-icons/core';
 import { CurrencyPipe } from '@angular/common';
@@ -37,8 +37,10 @@ export class Product {
   readonly hlmLarge = hlmLarge;
 
   product = input.required<ApiProduct>();
+  favourited = output<ApiProduct>();
 
-  onWishlist($event: MouseEvent): void {
+  onWishlisted(product: ApiProduct): void {
     console.log('Wishlist clicked');
+    this.favourited.emit(product);
   }
 }
