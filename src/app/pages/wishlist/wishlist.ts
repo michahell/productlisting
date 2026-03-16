@@ -5,7 +5,6 @@ import { NgIcon } from '@ng-icons/core';
 import { HlmItem, HlmItemActions, HlmItemContent, HlmItemDescription, HlmItemTitle } from '@spartan-ng/helm/item';
 import { HlmIcon } from '@spartan-ng/helm/icon';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { HlmNavigationMenuLink } from '@spartan-ng/helm/navigation-menu';
 
 @Component({
   selector: 'app-wishlist',
@@ -19,7 +18,6 @@ import { HlmNavigationMenuLink } from '@spartan-ng/helm/navigation-menu';
     HlmItemActions,
     HlmIcon,
     RouterLink,
-    HlmNavigationMenuLink,
     RouterLinkActive,
   ],
   templateUrl: './wishlist.html',
