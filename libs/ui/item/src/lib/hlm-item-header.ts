@@ -2,9 +2,9 @@ import { Directive } from '@angular/core';
 import { classes } from '@spartan-ng/helm/utils';
 
 @Directive({
-  selector: '[hlmItemHeader],hlm-item-header',
+  selector: '[hlmItemHeader],hlm-item-header2',
   host: {
-    'data-slot': 'item-header',
+    'data-slot': 'item-header2',
   },
 })
 export class HlmItemHeader {

@@ -59,15 +59,15 @@ describe('WishlistService', () => {
   describe('addToWishlist', () => {
     it('should add item to wishlist if not already present', () => {
       cachingServiceMock.naiveGetCache.mockReturnValue(null);
-      service.addToWishlist({ ...mockProduct, amount: 1 });
+      service.addToWishlist(mockProduct);
       expect(cachingServiceMock.naiveSetCache).toHaveBeenCalledWith(expect.any(String), {
-        items: [{ ...mockProduct, amount: 1 }],
+        items: [{ ...mockProduct, isWishlisted: true, amount: 1 }],
       });
     });
 
     it('should not add item if already in wishlist', () => {
-      cachingServiceMock.naiveGetCache.mockReturnValue({ items: [{ ...mockProduct, amount: 1 }] });
-      service.addToWishlist({ ...mockProduct, amount: 1 });
+      cachingServiceMock.naiveGetCache.mockReturnValue({ items: [{ ...mockProduct, isWishlisted: true, amount: 1 }] });
+      service.addToWishlist(mockProduct);
       expect(cachingServiceMock.naiveSetCache).not.toHaveBeenCalled();
     });
   });
@@ -84,6 +84,41 @@ describe('WishlistService', () => {
     it('should do nothing if item is not in wishlist', () => {
       cachingServiceMock.naiveGetCache.mockReturnValue({ items: [] });
       service.removeFromWishlist(mockProduct);
+      expect(cachingServiceMock.naiveSetCache).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('getWishlistedItem', () => {
+    it('should return the item if it exists in the wishlist', () => {
+      const wishlistItem = { ...mockProduct, amount: 2 };
+      cachingServiceMock.naiveGetCache.mockReturnValue({ items: [wishlistItem] });
+      expect(service.getWishlistedItem(mockProduct)).toEqual(wishlistItem);
+    });
+
+    it('should return null if item is not in wishlist', () => {
+      cachingServiceMock.naiveGetCache.mockReturnValue({ items: [] });
+      expect(service.getWishlistedItem(mockProduct)).toBeNull();
+    });
+
+    it('should return null if wishlist is null', () => {
+      cachingServiceMock.naiveGetCache.mockReturnValue(null);
+      expect(service.getWishlistedItem(mockProduct)).toBeNull();
+    });
+  });
+
+  describe('updateWishlistItemAmount', () => {
+    it('should update the amount of an item in the wishlist', () => {
+      const wishlistItem = { ...mockProduct, isWishlisted: true, amount: 1 };
+      cachingServiceMock.naiveGetCache.mockReturnValue({ items: [wishlistItem] });
+      service.updateWishlistItemAmount(wishlistItem, 3);
+      expect(cachingServiceMock.naiveSetCache).toHaveBeenCalledWith(expect.any(String), {
+        items: [{ ...wishlistItem, amount: 3 }],
+      });
+    });
+
+    it('should do nothing if wishlist is null', () => {
+      cachingServiceMock.naiveGetCache.mockReturnValue(null);
+      service.updateWishlistItemAmount({ ...mockProduct, isWishlisted: true, amount: 1 }, 3);
       expect(cachingServiceMock.naiveSetCache).not.toHaveBeenCalled();
     });
   });

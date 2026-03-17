@@ -1,10 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import Reproductions from './reproductions';
-import { ProductsService } from '../../services/products/products.service';
 import { WishlistService } from '../../services/wishlist/wishlist.service';
-import { of } from 'rxjs';
-import { Component, input, output } from '@angular/core';
+import { ReproductionsComponentFacade } from '../../services/reproductions/reproductions.component.facade';
+import { Component, input, output, signal } from '@angular/core';
 import { Product } from '../../components/product/product';
 
 @Component({
@@ -14,32 +13,34 @@ import { Product } from '../../components/product/product';
 class MockProduct {
   readonly product = input.required();
   readonly canBeWishlisted = input.required();
+  readonly isWishlisted = input<boolean>();
   readonly favourited = output();
 }
 
 describe('ReproductionsPage', () => {
   let component: Reproductions;
   let fixture: ComponentFixture<Reproductions>;
-  let productsServiceMock: any;
   let wishlistServiceMock: any;
+  let reproductionsFacadeMock: any;
 
   const mockProduct = { id: '1', title: 'Test' } as any;
 
   beforeEach(async () => {
-    productsServiceMock = {
-      getProducts: vi.fn().mockReturnValue(of([mockProduct])),
-    };
     wishlistServiceMock = {
-      hasWishlistedItem: vi.fn(),
+      isWishlistedItem: vi.fn(),
       removeFromWishlist: vi.fn(),
       addToWishlist: vi.fn(),
+    };
+
+    reproductionsFacadeMock = {
+      reproductions: signal([mockProduct]),
     };
 
     await TestBed.configureTestingModule({
       imports: [Reproductions],
       providers: [
-        { provide: ProductsService, useValue: productsServiceMock },
         { provide: WishlistService, useValue: wishlistServiceMock },
+        { provide: ReproductionsComponentFacade, useValue: reproductionsFacadeMock },
       ],
     })
       .overrideComponent(Reproductions, {
@@ -53,19 +54,15 @@ describe('ReproductionsPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should add to wishlist if not already there', () => {
-    wishlistServiceMock.hasWishlistedItem.mockReturnValue(false);
-    (component as any).onProductFavourited(mockProduct);
-    expect(wishlistServiceMock.addToWishlist).toHaveBeenCalledWith({ ...mockProduct, amount: 1 });
+    wishlistServiceMock.isWishlistedItem.mockReturnValue(false);
+    component.onProductWishlisted(mockProduct);
+    expect(wishlistServiceMock.addToWishlist).toHaveBeenCalledWith(mockProduct);
   });
 
   it('should remove from wishlist if already there', () => {
-    wishlistServiceMock.hasWishlistedItem.mockReturnValue(true);
-    (component as any).onProductFavourited(mockProduct);
+    wishlistServiceMock.isWishlistedItem.mockReturnValue(true);
+    component.onProductWishlisted(mockProduct);
     expect(wishlistServiceMock.removeFromWishlist).toHaveBeenCalledWith(mockProduct);
   });
 });

@@ -1,37 +1,23 @@
 import { Component, computed, effect, input, output } from '@angular/core';
-import {
-  HlmCard,
-  HlmCardAction,
-  HlmCardContent,
-  HlmCardDescription,
-  HlmCardFooter,
-  HlmCardHeader,
-  HlmCardTitle,
-} from '@spartan-ng/helm/card';
-import { ApiProduct } from '../../services/products/products.model';
-import { HlmToggle } from '@spartan-ng/helm/toggle';
-import { NgIcon } from '@ng-icons/core';
 import { CurrencyPipe, NgClass } from '@angular/common';
-import { HlmBadge } from '@spartan-ng/helm/badge';
+import { outputFromObservable } from '@angular/core/rxjs-interop';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { HlmCardImports } from '@spartan-ng/helm/card';
 import { hlmLarge } from '@spartan-ng/helm/typography';
+import { HlmToggle } from '@spartan-ng/helm/toggle';
+import { HlmBadge } from '@spartan-ng/helm/badge';
 import { HlmInput } from '@spartan-ng/helm/input';
 import { HlmLabel } from '@spartan-ng/helm/label';
 import { HlmButton } from '@spartan-ng/helm/button';
-import { outputFromObservable } from '@angular/core/rxjs-interop';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { NgIcon } from '@ng-icons/core';
+import { ApiProduct } from 'services/products/products.model';
 
 @Component({
   selector: 'app-product',
   imports: [
-    HlmCard,
-    HlmCardHeader,
-    HlmCardTitle,
-    HlmCardDescription,
-    HlmCardAction,
-    HlmCardFooter,
+    HlmCardImports,
     HlmToggle,
     NgIcon,
-    HlmCardContent,
     CurrencyPipe,
     HlmBadge,
     NgClass,

@@ -1,8 +1,8 @@
 import { Component, computed, inject } from '@angular/core';
-import { Product } from '../../components/product/product';
-import { ApiProduct } from '../../services/products/products.model';
-import { WishlistService } from '../../services/wishlist/wishlist.service';
-import { ReproductionsComponentFacade } from '../../services/reproductions/reproductions.component.facade';
+import { Product } from 'components/product/product';
+import { ApiProduct } from 'services/products/products.model';
+import { WishlistService } from 'services/wishlist/wishlist.service';
+import { ReproductionsComponentFacade } from 'services/reproductions/reproductions.component.facade';
 
 @Component({
   selector: 'app-reproductions',

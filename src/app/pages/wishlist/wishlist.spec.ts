@@ -12,6 +12,8 @@ import { Product } from '../../components/product/product';
 class MockProduct {
   readonly product = input.required();
   readonly canBeWishlisted = input.required();
+  readonly showsAmount = input<boolean>();
+  readonly amountWishlisted = input<number>();
   readonly favourited = output();
 }
 
