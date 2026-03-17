@@ -2,14 +2,16 @@
 
 ### Time spent
 
-| date                    | spent                                                                   |
-|-------------------------|-------------------------------------------------------------------------|
-| sun 15-03 16:45 - 17:00 | 15m  ng cli scaffold, npm install deps, AI config, prettier, cors proxy |
-| sun 15-03 17:15 - 20:00 | 2h45 add skeleton, pages, components, products JSON file, ng spartan    |
-| sun 15-03 20:00 - 22:00 | 2h elaborate components using ng spartan                                |
-| mon 16-03 11:45 - 14:35 | 2h50 implement naive wishlist system                                    |
+| date                        | spent                                                                   |
+|-----------------------------|-------------------------------------------------------------------------|
+| sun 15-03 16:45 - 17:00     | 15m  ng cli scaffold, npm install deps, AI config, prettier, cors proxy |
+| sun 15-03 17:15 - 20:00     | 2h45 add skeleton, pages, components, products JSON file, ng spartan    |
+| sun 15-03 20:00 - 22:00     | 2h elaborate components using ng spartan                                |
+| mon 16-03 11:45 - 14:35     | 2h50 implement naive wishlist system                                    |
+| mon 16-03 20:30 - 23:30     | 3h trying to figure out ng spartan / shadcn framework >.<               |
+| mon/tue 16-03 23:30 - 02:30 | 3h fixing wishlist system and changing amounts                          |
 
-total time spent: sun 6h + mon 6h = 12h
+total time spent: sun 6h + mon 8h50 = 14h50m
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
 
