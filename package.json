@@ -1,6 +1,6 @@
 {
   "name": "product listing",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "postinstall": "ng g @spartan-ng/cli:healthcheck",
     "ng": "ng",
