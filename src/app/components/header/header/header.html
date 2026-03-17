@@ -14,45 +14,35 @@
       </li>
 
       <li class="pl-2">
-        <hlm-sheet>
-          <div class="relative">
-            <button hlmBtn hlmSheetTrigger side="right" size="icon" variant="destructive" class="rounded-full">
-              <ng-icon name="lucideHeart" />
-            </button>
-            @if (wishlistedItems() > 0) {
-              <span
-                hlmBadge
-                class="absolute -top-[4px] -right-[8px] bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300"
-                >{{ wishlistedItems() }}</span
-              >
-            }
-          </div>
-          <hlm-sheet-content *hlmSheetPortal="let ctx">
-            <hlm-sheet-header>
-              <h3 hlmSheetTitle>Are you absolutely sure?</h3>
-              <p hlmSheetDescription>
-                This action cannot be undone. This will permanently delete your account and remove your data from our
-                servers.
-              </p>
-            </hlm-sheet-header>
-            <div class="grid flex-1 auto-rows-min gap-6 px-4">
-              <div class="grid gap-3">
-                <label hlmLabel for="name" class="text-right">Name</label>
-                <input hlmInput id="name" value="Pedro Duarte" class="col-span-3" />
-              </div>
-              <div class="grid gap-3">
-                <label hlmLabel for="username" class="text-right">Username</label>
-                <input hlmInput id="username" value="@peduarte" class="col-span-3" />
-                <input class="w-80" hlmInput type="number" placeholder="number" />
-              </div>
-            </div>
-            <hlm-sheet-footer>
-              <button hlmBtn type="submit">Save Changes</button>
-              <button hlmSheetClose hlmBtn variant="outline">Close</button>
-            </hlm-sheet-footer>
-          </hlm-sheet-content>
-        </hlm-sheet>
+        <ng-container *ngTemplateOutlet="sideBar; context: { $implicit: wishlistedItems() }"></ng-container>
       </li>
     </ul>
   </nav>
 </header>
+
+<ng-template #sideBar let-wishlistedItems>
+  <hlm-sheet>
+    <div class="relative">
+      <button hlmBtn hlmSheetTrigger side="right" size="icon" variant="destructive" class="rounded-full">
+        <ng-icon name="lucideHeart" />
+      </button>
+      @if (wishlistedItems > 0) {
+        <span hlmBadge class="absolute -top-[4px] -right-[8px] bg-red-500 text-red-100">{{ wishlistedItems }}</span>
+      }
+    </div>
+    <hlm-sheet-content *hlmSheetPortal="let ctx">
+      <hlm-sheet-header>
+        <h3 hlmSheetTitle>wishlist</h3>
+        <p hlmSheetDescription>manage your wishlist items</p>
+      </hlm-sheet-header>
+
+      <div class="flex w-full items-center justify-center mt-4 p-4">
+        <app-wishlist-carousel></app-wishlist-carousel>
+      </div>
+
+      <hlm-sheet-footer>
+        <button hlmSheetClose hlmBtn type="submit">Close</button>
+      </hlm-sheet-footer>
+    </hlm-sheet-content>
+  </hlm-sheet>
+</ng-template>

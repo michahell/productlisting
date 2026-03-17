@@ -1,0 +1,39 @@
+@if (wishlistItems(); as wishlistItems) {
+  @if (wishlistItems.length > 0) {
+    <hlm-carousel class="w-full" orientation="vertical">
+      <hlm-carousel-content class="-mt-1 h-[470px]">
+        @for (wishlistItem of wishlistItems; track $index; let index = $index) {
+          <hlm-carousel-item>
+            <app-product
+              (deleted)="onDeleted(wishlistItem)"
+              (amountChanged)="onAmountChanged(wishlistItem, $event)"
+              [product]="wishlistItem"
+              [canBeDeleted]="true"
+              [canHaveAdjustableAmount]="true"
+              [amountWishlisted]="wishlistItem.amount"
+              [style.--delay]="index"
+              class="flex mb-5"
+              animate.enter="fade-slide-in"
+              animate.leave="fade-slide-out"
+            ></app-product>
+          </hlm-carousel-item>
+        }
+      </hlm-carousel-content>
+      <button hlm-carousel-previous></button>
+      <button hlm-carousel-next></button>
+      <hlm-carousel-slide-display class="mt-1 flex justify-end" />
+    </hlm-carousel>
+  } @else {
+    <div class="flex-1 w-full items-center align-middle content-center">
+      <div hlmItem variant="muted">
+        <div hlmItemContent>
+          <div hlmItemTitle>No wishlisted reproductions!</div>
+          <p hlmItemDescription>Go see our reproductions to wishlist some.</p>
+        </div>
+        <div hlmItemActions>
+          <button hlmBtn hlmSheetClose variant="outline" size="sm">Close</button>
+        </div>
+      </div>
+    </div>
+  }
+}

@@ -13,8 +13,6 @@ import {
   HlmSheetTrigger,
 } from '@spartan-ng/helm/sheet';
 import { NgIcon } from '@ng-icons/core';
-import { HlmInput } from '@spartan-ng/helm/input';
-import { HlmLabel } from '@spartan-ng/helm/label';
 import { HlmBadge } from '@spartan-ng/helm/badge';
 import {
   HlmNavigationMenu,
@@ -23,6 +21,8 @@ import {
   HlmNavigationMenuList,
 } from '@spartan-ng/helm/navigation-menu';
 import { WishlistService } from '../../../services/wishlist/wishlist.service';
+import { NgTemplateOutlet } from '@angular/common';
+import { WishlistCarousel } from '../../wishlist-carousel/wishlist-carousel/wishlist-carousel';
 
 @Component({
   selector: 'app-header',
@@ -38,15 +38,15 @@ import { WishlistService } from '../../../services/wishlist/wishlist.service';
     HlmSheetTitle,
     HlmSheetTrigger,
     NgIcon,
-    HlmInput,
     HlmSheetFooter,
-    HlmLabel,
     HlmSheetClose,
     HlmBadge,
     HlmNavigationMenu,
     HlmNavigationMenuList,
     HlmNavigationMenuItem,
     HlmNavigationMenuLink,
+    NgTemplateOutlet,
+    WishlistCarousel,
   ],
   templateUrl: './header.html',
   styleUrl: './header.css',

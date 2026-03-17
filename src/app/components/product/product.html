@@ -22,24 +22,50 @@
         {{ product.dimensions_cm.height }}&nbsp;cm<br />
       </p>
     </div>
-    <hlm-card-footer class="flex items-end content-end">
+    <hlm-card-footer class="flex justify-between items-end content-end">
+      <!-- wishlisteable -->
       @if (canBeWishlisted()) {
-        <button
-          (click)="onWishlisted(product)"
-          [ngClass]="wishlistStatus()"
-          hlmToggle
-          size="sm"
-          variant="outline"
-          aria-label="Toggle bookmark"
-        >
-          <ng-icon name="lucideHeart" />
-          wishlist
+        <div class="w-full max-w-sm pt-2">
+          <button
+            (click)="onWishlisted(product)"
+            [ngClass]="wishlistStatus()"
+            hlmToggle
+            size="sm"
+            variant="outline"
+            aria-label="Toggle bookmark"
+          >
+            <ng-icon name="lucideHeart" />
+            wishlist
+          </button>
+        </div>
+      }
+
+      <!-- deleteable -->
+      @if (canBeDeleted()) {
+        <button (click)="onDeleted(product)" hlmBtn size="sm" variant="destructive" aria-label="Toggle bookmark">
+          <ng-icon name="lucideXSquare" />
+          delete
         </button>
       }
-      @if (amountWishlisted(); as amountWishlisted) {
-        @if (amountWishlisted > 0) {
-          <p>amount wishlisted: {{ amountWishlisted }}</p>
+
+      <!-- amount displayed -->
+      @if (showsAmount()) {
+        @if (amountWishlisted(); as amountWishlisted) {
+          @if (amountWishlisted > 0) {
+            <span>
+              amount wishlisted:
+              <span hlmBadge variant="secondary">{{ amountWishlisted }}</span>
+            </span>
+          }
         }
+      }
+
+      <!-- amount modifiable -->
+      @if (canHaveAdjustableAmount()) {
+        <div class="grid max-w-sm items-center gap-3 w-24">
+          <label hlmLabel for="amount">Amount</label>
+          <input hlmInput id="amount" type="number" placeholder="amount" [formControl]="amountControl" />
+        </div>
       }
     </hlm-card-footer>
   </hlm-card>

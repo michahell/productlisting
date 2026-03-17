@@ -34,6 +34,17 @@ export class WishlistService {
     return wishlist.items.find(existingWishlistedItem => existingWishlistedItem.id === product.id) ?? null;
   }
 
+  updateWishlistItemAmount(wishlistItem: WishlistItem, amount: number): void {
+    const wishlist = this.#getWishList();
+    if (!wishlist) {
+      return;
+    }
+    const updatedList = [...wishlist.items];
+    this.#updateWishList({
+      items: updatedList.map(item => (item.id === wishlistItem.id ? { ...wishlistItem, amount } : item)),
+    });
+  }
+
   addToWishlist(product: ApiProduct): void {
     const wishlist = this.#getWishList();
     // if the item is already wishlisted, return
