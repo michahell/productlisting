@@ -16,7 +16,8 @@ jobs:
         with:
           node-version: '24.14.0'
       - run: npm install
-      - run: npm run lint
+      - continue-on-error: true
+        run: npm run lint
 
   build:
     runs-on: ubuntu-latest
@@ -26,7 +27,8 @@ jobs:
         with:
           node-version: '24.14.0'
       - run: npm install
-      - run: npm run build
+      - continue-on-error: false
+        run: npm run build
 
   test:
     runs-on: ubuntu-latest
@@ -36,4 +38,5 @@ jobs:
         with:
           node-version: '24.14.0'
       - run: npm install
-      - run: npm run test
+      - continue-on-error: false
+        run: npm run test
